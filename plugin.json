@@ -1,0 +1,21 @@
+{
+  "name": "claude-code-for-ux-designers",
+  "version": "1.0.0",
+  "description": "Skills and guides for UX designers who want to use Claude Code to build websites, apps, and prototypes from their Figma designs — no programming experience required.",
+  "author": {
+    "name": "Lucas Homer",
+    "url": "https://lucashomer.com"
+  },
+  "repository": "https://github.com/lucas-homer/claude-code-for-ux-designers",
+  "license": "MIT",
+  "keywords": [
+    "figma",
+    "ux-design",
+    "website",
+    "non-programmer",
+    "portfolio",
+    "vercel",
+    "setup-guide",
+    "designer"
+  ]
+}
