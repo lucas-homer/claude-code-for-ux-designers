@@ -4,7 +4,7 @@ A Claude Code plugin that walks UX designers through building a custom website f
 
 ## What This Does
 
-This plugin provides a skill called `figma-to-website` that guides a non-programmer through:
+This plugin provides a skill called `claude-code-for-ux-designers` that guides a non-programmer through:
 
 - Setting up their Mac (Git, GitHub CLI, Claude Code)
 - Creating and connecting GitHub, Vercel, and Figma accounts
@@ -22,7 +22,7 @@ claude plugin install claude-code-for-ux-designers@lucas-homer
 For technical users who prefer `npx skills`:
 
 ```
-npx skills add lucas-homer/claude-code-for-ux-designers --skill figma-to-website
+npx skills add lucas-homer/claude-code-for-ux-designers --skill claude-code-for-ux-designers
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ Once installed, the skill activates automatically when someone says things like:
 - "I'm a designer and I want to build a custom portfolio site"
 - "How do I connect Figma to Claude Code?"
 
-Or invoke it directly with `/figma-to-website`.
+Or invoke it directly with `/claude-code-for-ux-designers`.
 
 ## Standalone Guide
 

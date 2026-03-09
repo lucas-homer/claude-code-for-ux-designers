@@ -20,7 +20,7 @@ Once you finish this guide (about 30–45 minutes of setup), your workflow will 
 
 You are the creative director. Claude Code is the developer who builds what you describe.
 
-> **Already have Claude Code installed?** This guide is also available as a Claude Code **skill** called `figma-to-website`, part of the `claude-code-for-ux-designers` plugin. If someone has already helped you install Claude Code, you can install the plugin and ask Claude Code to walk you through the rest of the setup interactively — just say "Help me set up my Mac so I can build a website from my Figma designs." The skill contains the same instructions as this guide, but Claude Code can adapt them to your specific situation and answer questions along the way.
+> **Already have Claude Code installed?** This guide is also available as a Claude Code **skill** called `claude-code-for-ux-designers`, part of the `claude-code-for-ux-designers` plugin. If someone has already helped you install Claude Code, you can install the plugin and ask Claude Code to walk you through the rest of the setup interactively — just say "Help me set up my Mac so I can build a website from my Figma designs." The skill contains the same instructions as this guide, but Claude Code can adapt them to your specific situation and answer questions along the way.
 
 ---
 
