@@ -37,7 +37,7 @@ Or invoke it directly with `/claude-code-for-ux-designers`.
 
 ## Standalone Guide
 
-The `guide/` directory contains a standalone markdown guide (`figma-to-website-guide.md`) that covers the full setup process from scratch — including the steps that happen before Claude Code is installed. Share this with designers who haven't started yet.
+The repo includes a standalone guide (`guide.md`) that covers the full setup process from scratch — including the steps that happen before Claude Code is installed. Share this with designers who haven't started yet.
 
 ## Requirements
 

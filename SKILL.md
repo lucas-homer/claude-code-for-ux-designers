@@ -3,7 +3,7 @@ name: claude-code-for-ux-designers
 description: Walk a UX designer (non-programmer) through setting up their Mac so they can use Claude Code + Figma MCP to build and deploy a custom website from their Figma designs. Use this skill when someone mentions wanting to build a website from Figma, go from design to code without a site builder, set up Claude Code for the first time as a non-developer, connect Figma to Claude Code, or deploy a portfolio/personal site. Also trigger when a designer says they want to skip Framer/Wix/Squarespace and build something custom, or when anyone asks how to help a non-programmer get started with Claude Code for web development.
 ---
 
-# Figma to Website: A Setup Guide for UX Designers
+# Claude Code for UX Designers: A Setup Guide
 
 This skill walks a UX designer — someone who is not a programmer — through everything they need to go from a Figma design to a live, deployed custom website using Claude Code. The audience has never used a terminal before. Assume nothing.
 
