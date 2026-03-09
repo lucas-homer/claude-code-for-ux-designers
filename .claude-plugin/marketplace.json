@@ -1,0 +1,27 @@
+{
+  "name": "lucas-homer",
+  "owner": {
+    "name": "Lucas Homer",
+    "url": "https://lucashomer.com"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-for-ux-designers",
+      "description": "Skills and guides for UX designers who want to use Claude Code to build websites, apps, and prototypes from their Figma designs — no programming experience required.",
+      "version": "1.0.0",
+      "source": {
+        "source": "github",
+        "repo": "lucas-homer/claude-code-for-ux-designers"
+      },
+      "keywords": [
+        "figma",
+        "ux-design",
+        "website",
+        "non-programmer",
+        "portfolio",
+        "vercel",
+        "designer"
+      ]
+    }
+  ]
+}
