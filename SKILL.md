@@ -282,6 +282,20 @@ This is where the designer's expertise matters most. Review the preview and give
 - "This looks good, but on mobile it should stack vertically instead of side by side"
 - "The colors are slightly off — check the exact hex values from my Figma file"
 
+### Tightening the Feedback Loop
+
+By default, the designer is Claude Code's "eyes" — they look at the preview and describe what needs to change. There are two ways to make this faster and more accurate:
+
+**Drop in screenshots.** They can drag and drop image files directly into the Claude Code chat. Workflow: take a screenshot of what they see in the browser (Cmd + Shift + 4), then drag the file into Terminal. They can say: "See this gap? It should be half that size." They can also drop in a screenshot of their Figma design alongside the browser screenshot for direct comparison.
+
+**Connect Claude Code to Chrome.** The Claude in Chrome extension lets Claude Code open the browser, navigate the site, and check its own work visually — no screenshots needed. Setup:
+
+1. Install the **Claude in Chrome** extension from the Chrome Web Store
+2. Restart Chrome
+3. In Claude Code, type `/chrome` and select "Enabled by default"
+
+Once connected, they can say things like: "Open the dev server in Chrome and tell me if the layout matches my Figma design" or "Check the mobile view — resize the browser to phone width and see if anything breaks." This is in beta and works with Chrome and Microsoft Edge.
+
 ### Saving and Deploying
 
 When they are happy with a set of changes, tell Claude Code:
