@@ -9,6 +9,7 @@ This plugin provides a skill called `claude-code-for-ux-designers` that guides a
 - Setting up their Mac (Git, GitHub CLI, Claude Code)
 - Creating and connecting GitHub, Vercel, and Figma accounts
 - Understanding Claude Code's permission prompts
+- Tightening the feedback loop with screenshots and the Claude in Chrome extension
 - The daily workflow of designing in Figma → building with Claude Code → deploying with Vercel
 
 ## Install

@@ -8,6 +8,20 @@ What if you could describe your design to an AI that reads your Figma files and 
 
 ---
 
+## Why Claude Code?
+
+Fair question. There are other AI coding tools out there — why this one?
+
+**It's just typing.** Claude Code runs in your <a id="ref-terminal-intro"></a>[Terminal](#glossary-terminal) — the same plain text window you'll use throughout this guide. There's no complex new program to learn with dozens of menus and panels (like learning Figma for the first time, remember that?). You type what you want, Claude Code does it. That simplicity is a feature, not a limitation.
+
+**The experience is genuinely good.** Claude Code is designed to feel like a conversation. You describe what you want in plain English, it asks clarifying questions when it needs to, and it explains what it's doing along the way. Of the AI coding tools available today, it has one of the most natural and forgiving interfaces — especially for someone who's never written code.
+
+**$20/month goes a long way.** The Pro plan gives you access to Claude's <a id="ref-sonnet"></a>[Sonnet](#glossary-model) model, which is fast and more than capable of building a straightforward website from your Figma designs. You'll be working with a budget of <a id="ref-tokens"></a>[tokens](#glossary-tokens) — think of it like a monthly pool of "AI thinking time." For most portfolio and personal sites, the Pro plan is plenty. If you hit a particularly complex challenge, you can switch to the more powerful Opus model for that session (it uses tokens faster, but sometimes the extra capability is worth it).
+
+**This is one person's opinion.** This guide uses Claude Code because the author thinks it's the best fit for this workflow right now. But the approach isn't locked to any single tool. You could recreate this entire setup with [Codex CLI](https://github.com/openai/codex) or [Gemini CLI](https://github.com/google-gemini/gemini-cli), and use ChatGPT or Gemini to chat with along the way. If you're curious, try it — paste this guide into your AI chat of choice and ask it to help you adapt the steps. The important thing isn't which AI you use. It's that you, the designer, are in the driver's seat.
+
+---
+
 ## What You'll Be Able To Do
 
 Once you finish this guide (about 30–45 minutes of setup), your workflow will look like this:
@@ -351,6 +365,44 @@ This is where your design expertise matters. Look at the preview and give specif
 
 The more specific you are, the better the result. You're the creative director — be opinionated.
 
+### Tightening the Feedback Loop
+
+Here's the thing about Claude Code: it writes code, but it can't see the result unless you help it. By default, you're the eyes — you preview the site and describe what needs to change. That works, but there are two ways to make the feedback loop much faster and more accurate.
+
+#### Drop in screenshots
+
+You can drag and drop images directly into the Claude Code chat. This is incredibly useful when giving feedback:
+
+1. Open your site preview in the browser (localhost)
+2. Take a screenshot of what you see (Cmd + Shift + 4 on Mac, then drag to select an area)
+3. Drag the screenshot file right into the Terminal where Claude Code is running
+
+Now Claude Code can *see* what you see. Instead of describing "the spacing is off between the header and the hero," you can drop in the screenshot and say: "See this gap? It should be half that size." You can also drop in a screenshot of your Figma design side by side: "Here's my Figma design and here's what the site looks like — match the Figma version."
+
+This is the closest thing to sitting next to a developer and pointing at the screen.
+
+#### Let Claude Code see your browser directly
+
+For an even tighter feedback loop, you can connect Claude Code to your Chrome browser using the <a id="ref-chrome-extension"></a>[Claude in Chrome](#glossary-chrome-extension) extension. This lets Claude Code open your site, look at it, click around, and check its own work — no screenshots needed.
+
+**Setup (one time):**
+
+1. Install the **Claude in Chrome** extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/claude-in-chrome/oadkbeemgdgaflhbbgdkmfaodfeiemka)
+2. Restart Chrome after installing
+3. In Claude Code, type `/chrome` and select "Enabled by default"
+
+**Using it:**
+
+Once connected, you can say things like:
+
+- "Open the dev server in Chrome and tell me if the layout matches my Figma design"
+- "Check the mobile view — resize the browser to phone width and see if anything breaks"
+- "Look at the About page and compare it to this Figma link"
+
+Claude Code will open tabs, navigate your site, and report back what it sees. It's like giving your coding partner a monitor of their own. You're still the creative director — but now your developer can actually look at the work in progress without you having to describe every detail.
+
+> **Note:** Claude in Chrome is in beta. It works with Chrome and Microsoft Edge. You'll need a direct Anthropic subscription (the same Pro plan you're already using). If Claude Code ever needs you to log in somewhere or handle a CAPTCHA, it'll ask you to do that manually.
+
 ### Saving and Publishing
 
 When you're happy with a round of changes:
@@ -410,6 +462,45 @@ Your expertise is design. Claude Code's expertise is code. You provide the creat
 
 ---
 
+## Getting the Most Out of Claude Code
+
+You don't need to learn programming, but a little understanding of how Claude Code thinks will help you get better results, faster.
+
+### How to Prompt Well
+
+"Prompting" just means telling Claude Code what you want. You're already good at this — giving design feedback is prompting. Here are a few tips to make your instructions even more effective:
+
+**Be specific rather than vague.** Just like giving feedback to a developer on your team, the clearer you are, the better the result.
+
+| Instead of... | Try... |
+|---|---|
+| "Make it look better" | "Increase the spacing between sections to 64px and use my brand blue (#1A73E8) for the heading" |
+| "Fix the layout" | "On mobile, the two-column grid should stack into a single column" |
+| "Add some animation" | "When a user scrolls down, fade in each project card one at a time with a subtle upward slide" |
+
+**Give context when it helps.** If you're starting a new session, remind Claude Code what you're working on: "I'm building a portfolio site. Here's where we left off — the homepage is done and I want to start on the About page."
+
+**Iterate in small steps.** Rather than describing an entire page in one message, build it up: get the layout right, then the typography, then the colors, then the interactions. Review after each step. This is exactly how you'd direct a junior developer — small feedback loops lead to better outcomes.
+
+**Say what you see, not what you think the code should do.** You don't need to guess at the technical fix. "The button is 10px too far to the right" is better than "I think there's a margin issue in the CSS." Let Claude Code figure out the technical side.
+
+**It's okay to be conversational.** You can say "Hmm, that's close but the font feels too heavy" or "I liked the previous version better, can we go back?" Claude Code understands natural language — you don't need to be formal or use technical terms.
+
+### Understanding Context and Token Usage
+
+When you're chatting with Claude Code, it's keeping track of your entire conversation — your messages, its responses, and the code it's working with. This is called the <a id="ref-context-window"></a>[context window](#glossary-context-window), and it has a limit.
+
+Think of it like a whiteboard in a meeting. As you work, the whiteboard fills up. When it's full, the oldest notes get erased to make room for new ones. Claude Code handles this automatically — you don't need to manage it — but it helps to know it's happening.
+
+**When to start a new conversation:** If Claude Code starts forgetting things you told it earlier, seems confused about your project, or gives answers that feel off, it might be running low on context. Type `/cost` to check how much context you've used. If it's getting high, start a fresh session — just exit and run `claude` again. Your code and files are saved; only the conversation resets.
+
+**Practical tips:**
+- Start a fresh Claude Code session for each major task (e.g., "build the About page" is a separate session from "redesign the navigation")
+- If you're doing a big review with lots of feedback, break it into focused sessions
+- Don't worry about losing work — everything Claude Code builds is saved in your project files and tracked by Git
+
+---
+
 ## What's Next?
 
 Once your site is live, you can keep iterating. Come back anytime, open Terminal, navigate to your project, and start Claude Code. Your designs can evolve as fast as you can think of changes.
@@ -436,9 +527,13 @@ Technical terms used in this guide, explained in plain language. Click the ↩ a
 
 <a id="glossary-cli"></a>**CLI (Command Line Interface)** — A way of using a program by typing text commands instead of clicking buttons in a graphical window. When someone says "the GitHub CLI," they mean a program that lets you do GitHub tasks by typing commands in Terminal. The opposite of a CLI is a GUI (graphical user interface) — the kind of apps you're used to, with windows and buttons. [↩](#ref-cli) · [Learn more](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line)
 
+<a id="glossary-chrome-extension"></a>**Claude in Chrome** — A Chrome browser extension that connects Claude Code to your web browser. Once installed, Claude Code can open tabs, navigate to pages, read what's on screen, and interact with your site — all on its own. This is useful for letting Claude Code check its own work visually, rather than relying on you to describe what you see. It works with Chrome and Microsoft Edge. [↩](#ref-chrome-extension) · [Learn more](https://code.claude.com/docs/en/chrome)
+
 <a id="glossary-clone"></a>**Clone** — To download a copy of a repository from GitHub to your computer. The copy stays connected to GitHub, so you can send changes back and forth. It's similar to downloading a Figma file for offline use — except the connection to the original is maintained automatically. [↩](#ref-clone) · [Learn more](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 <a id="glossary-commit"></a>**Commit** — A saved snapshot of your project at a specific point in time. When you commit, you're telling Git: "Remember what everything looks like right now." You can think of it like pressing "Save" in Figma — except Git keeps every version you've ever saved, and you can go back to any of them. Each commit includes a short description of what changed. [↩](#ref-commit) · [Learn more](https://github.com/git-guides/git-commit)
+
+<a id="glossary-context-window"></a>**Context window** — The amount of conversation and code that Claude Code can "hold in its head" at once. Every message you send and every response it gives takes up space in this window. When it fills up, the oldest parts of the conversation are dropped. This is why starting fresh sessions for new tasks is a good habit — it gives Claude Code a clean slate to focus on the work at hand. [↩](#ref-context-window) · [Learn more](https://docs.anthropic.com/en/docs/build-with-claude/context-windows)
 
 <a id="glossary-deploy"></a>**Deploy** — To take code and make it available as a live website that anyone can visit. When Vercel "deploys" your project, it takes your code from GitHub, builds it into a website, and puts it on the internet. Think of it like exporting a finished design and uploading it somewhere public. [↩](#ref-deploy) · [Learn more](https://vercel.com/docs/deployments/overview)
 
@@ -447,6 +542,8 @@ Technical terms used in this guide, explained in plain language. Click the ↩ a
 <a id="glossary-dns"></a>**DNS (Domain Name System)** — The internet's address book. When someone types `yourname.com` into a browser, DNS is what translates that human-readable name into the actual server address where your website lives. When Vercel asks you to "add DNS records," it's asking you to update this address book so your domain name points to Vercel's servers. [↩](#ref-dns) · [Learn more](https://vercel.com/docs/projects/domains)
 
 <a id="glossary-git"></a>**Git** — A tool that tracks every change to every file in your project over time. It's like version history in Figma, but for code. Git runs on your computer and keeps a detailed log of what changed, when, and why. It's the most widely used tool of its kind — nearly every developer in the world uses it. [↩](#ref-git) · [Learn more](https://docs.github.com/en/get-started/using-git/about-git)
+
+<a id="glossary-model"></a>**Model (AI model)** — The "brain" behind an AI tool. Different models have different strengths: some are faster and cheaper, others are slower but more capable. Claude's **Sonnet** model is the fast, efficient one — great for most website-building tasks. **Opus** is the more powerful one — useful when you hit something unusually complex. You don't need to manage this yourself; Claude Code picks the right model based on your plan, and you can ask it to switch if needed. [↩](#ref-sonnet) · [Learn more](https://docs.anthropic.com/en/docs/about-claude/models)
 
 <a id="glossary-localhost"></a>**localhost** — A special web address that means "this computer." When you see `http://localhost:3000`, it means "the website being served by my own computer on port 3000." It's not a real internet address — only you can see it. Developers use it to preview their work before publishing. [↩](#ref-localhost) · [Learn more](https://developer.mozilla.org/en-US/docs/Glossary/Localhost)
 
@@ -457,5 +554,7 @@ Technical terms used in this guide, explained in plain language. Click the ↩ a
 <a id="glossary-push"></a>**Push** — To send your committed changes from your computer up to GitHub. Committing saves changes locally (on your Mac); pushing uploads them to the cloud. Once changes are pushed to GitHub, Vercel can see them and automatically update your live website. [↩](#ref-push) · [Learn more](https://github.com/git-guides/git-push)
 
 <a id="glossary-repository"></a>**Repository (repo)** — A project folder that's tracked by Git. It contains all your project's files plus the complete history of every change ever made. On GitHub, a repository is where your project lives in the cloud. On your computer, it's the local folder you work in. Think of it like a Figma project — it holds all the files, and you can see the full history of every edit. [↩](#ref-repository) · [Learn more](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
+
+<a id="glossary-tokens"></a>**Tokens** — The unit AI models use to measure how much text they're processing. Roughly, 1 token ≈ ¾ of a word. Every time you send a message to Claude Code and it responds, both your message and its response cost tokens. Your subscription includes a monthly token budget. For building a personal website, the Pro plan's budget is usually more than enough. If you notice Claude Code slowing down or warning you about limits near the end of the month, that's a token budget thing — it resets on your billing date. [↩](#ref-tokens) · [Learn more](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching#tracking-cache-performance)
 
 <a id="glossary-terminal"></a>**Terminal** — An app on your Mac where you type text commands to control your computer. It's been around since before graphical interfaces existed. Developers use it constantly because typing commands can be faster than clicking through menus. It might look unfamiliar, but for this workflow you'll only ever type a few short commands. [↩](#ref-terminal) · [Learn more](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac)
