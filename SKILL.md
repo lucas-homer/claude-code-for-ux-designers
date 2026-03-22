@@ -36,15 +36,19 @@ The designer's job is to be the creative director: provide the vision, review th
 
 Walk the designer through creating these accounts in order. Emphasize that all of these are free or included with subscriptions they may already have.
 
-### 1. Authenticator App (on their phone)
+Set up Claude first. That way, if anything in the rest of this setup doesn't go as expected — a step looks different on their screen, an install fails, or they're not sure what something means — they can open claude.ai and ask. It's like having a knowledgeable friend on standby while they work through the rest.
 
-Before creating any accounts, install an authenticator app on their phone. GitHub requires two-factor authentication (2FA) for all accounts, and they will need this app during signup.
-
-Recommend **Google Authenticator** (free, available on iOS and Android). Other options like Microsoft Authenticator or Authy also work. The app generates short-lived codes that prove it is really them logging in.
-
-### 2. Anthropic Account
+### 1. Anthropic Account
 
 Go to **claude.ai** and sign up. They need a **Pro** or **Max** subscription to use Claude Code. If they already use Claude through a paid plan, they are set.
+
+Remind them: once they have this account, they can use Claude right away at claude.ai to ask questions as they work through the remaining setup steps. Later, we'll install Claude Code — the Terminal version that reads Figma files and writes code.
+
+### 2. Authenticator App (on their phone)
+
+Before creating the next account, install an authenticator app on their phone. GitHub requires two-factor authentication (2FA) for all accounts, and they will need this app during signup.
+
+Recommend **Google Authenticator** (free, available on iOS and Android). Other options like Microsoft Authenticator or Authy also work. The app generates short-lived codes that prove it is really them logging in.
 
 ### 3. GitHub Account
 
@@ -227,7 +231,7 @@ In the Vercel dashboard (vercel.com), click **Add New Project**, then **Import**
 
 ### Step 7: Custom Domain (Optional)
 
-If they have purchased a domain name, they can add it in the Vercel dashboard under the project's **Settings → Domains**. Vercel provides instructions for updating DNS records with their domain registrar.
+If they want a custom domain (like `yourname.com`) instead of the free `yourname.vercel.app` URL, they can purchase one directly through Vercel — go to the project's **Settings → Domains**. Buying through Vercel keeps everything in one place. They can always add a domain later; it's not required to get started.
 
 ## Understanding Permission Prompts
 
