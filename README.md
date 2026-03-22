@@ -43,6 +43,8 @@ The repo includes a standalone guide (`guide.md`) that covers the full setup pro
 
 - Mac (macOS 10.15+)
 - Anthropic Pro or Max subscription
+- GitHub account (free)
+- Vercel account (free for personal projects)
 - Figma account on a paid plan with a Dev or Full seat (free plans are limited to 6 MCP calls/month)
 
 ## License

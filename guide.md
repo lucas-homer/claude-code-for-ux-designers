@@ -26,12 +26,15 @@ You are the creative director. Claude Code is the developer who builds what you 
 
 ## What You'll Need
 
-- A Mac running macOS 10.15 (Catalina) or later
-- A Figma account on a paid plan with a Dev or Full seat (see Section 1.5 for why this matters)
-- About 30–45 minutes for initial setup
-- $20/month for a Claude Pro subscription (this powers Claude Code)
+- **A Mac** running macOS 10.15 (Catalina) or later
+- **A Figma account** on a paid plan with a Dev or Full seat (see Section 1.5 for why this matters)
+- **A GitHub account** (free) — this is where your code lives. Think of it like cloud storage for code. If you don't have one yet, you'll create it in Part 1. → [github.com](https://github.com)
+- **A Vercel account** (free for personal projects) — this is what turns your code into a live website. You'll sign up using your GitHub account, so do that one first. → [vercel.com](https://vercel.com)
+- **A domain name** (optional) — like `yourname.com`. If you want a custom URL instead of `yourname.vercel.app`, you can purchase one directly through Vercel, which keeps everything in one place. This typically costs $10–15/year. You can always add a domain later — it's not required to get started.
+- **$20/month for a Claude Pro subscription** — this powers Claude Code, the AI that writes your code
+- **About 30–45 minutes for initial setup** — this includes creating any accounts you don't already have (GitHub, Vercel, etc.), installing a few tools, and connecting everything together. It's a one-time process.
 
-Everything else in this guide is free.
+After setup, the only ongoing cost is the Claude subscription. GitHub, Vercel, and all the tools in this guide are free for personal projects.
 
 ---
 
@@ -39,17 +42,21 @@ Everything else in this guide is free.
 
 You'll need four accounts. If you already have some of these, skip ahead.
 
-### 1.1 — Install an Authenticator App on Your Phone
+We're going to set up Claude first. That way, if anything in the rest of this guide doesn't go as expected — a step looks different on your screen, an install fails, or you're just not sure what something means — you can open Claude and ask. Think of it as having a knowledgeable friend on standby while you work through the setup.
 
-Before creating any accounts, grab **Google Authenticator** from the App Store (it's free). GitHub requires two-factor authentication — this app generates short-lived codes that prove it's really you logging in.
-
-Other options like Microsoft Authenticator or Authy work too, but Google Authenticator is the simplest.
-
-### 1.2 — Anthropic Account (for Claude Code)
+### 1.1 — Anthropic Account (for Claude Code)
 
 Go to [claude.ai](https://claude.ai) and sign up. You'll need a **Pro** ($20/month) or **Max** subscription.
 
 If you already use Claude through a paid plan, you're set — the same account works for Claude Code.
+
+Once you have your account, you can use Claude right away at [claude.ai](https://claude.ai) to ask questions as you work through the rest of this guide. Later, in Part 2, we'll install Claude Code — the version that runs in Terminal and can read your Figma files and write code.
+
+### 1.2 — Install an Authenticator App on Your Phone
+
+Before creating your next account, grab **Google Authenticator** from the App Store (it's free). GitHub requires <a id="ref-2fa"></a>[two-factor authentication](#glossary-2fa) — this app generates short-lived codes that prove it's really you logging in.
+
+Other options like Microsoft Authenticator or Authy work too, but Google Authenticator is the simplest.
 
 ### 1.3 — GitHub Account
 
@@ -84,7 +91,7 @@ These steps happen once. After this, you won't need to do them again.
 
 ### 2.0 — Meet the Terminal
 
-Everything in this section happens in an app called **Terminal**. Here's how to open it:
+Everything in this section happens in an app called <a id="ref-terminal"></a>**[Terminal](#glossary-terminal)**. Here's how to open it:
 
 1. Press `Cmd + Space` (this opens Spotlight search)
 2. Type **Terminal**
@@ -94,18 +101,20 @@ You'll see a window with a dark or light background and a blinking cursor. This 
 
 **Four commands worth knowing:**
 
-| Command | What it does | Real-world analogy |
-|---------|-------------|-------------------|
-| `cd FolderName` | Move into a folder | Double-clicking a folder in Finder |
-| `ls` | See what's in the current folder | Looking at the contents of an open Finder window |
-| `mkdir FolderName` | Create a new folder | Right-click → New Folder in Finder |
-| `pwd` | Show where you are right now | The path bar at the bottom of a Finder window |
+| Command | Stands for | What it does | Real-world analogy |
+|---------|-----------|-------------|-------------------|
+| `cd FolderName` | **c**hange **d**irectory | Move into a folder | Double-clicking a folder in Finder |
+| `ls` | **l**i**s**t | See what's in the current folder | Looking at the contents of an open Finder window |
+| `mkdir FolderName` | **m**a**k**e **dir**ectory | Create a new folder | Right-click → New Folder in Finder |
+| `pwd` | **p**rint **w**orking **d**irectory | Show where you are right now | The path bar at the bottom of a Finder window |
+
+"Directory" is just the technical word for "folder" — they mean the same thing.
 
 When Terminal first opens, you start in your **home directory** — the top-level folder for your user account.
 
 ### 2.1 — Check If Git Is Installed
 
-Git is a tool that tracks changes to your code, kind of like version history in Figma.
+<a id="ref-git"></a>[Git](#glossary-git) is a tool that tracks changes to your code, kind of like version history in Figma.
 
 Type this and press Enter:
 
@@ -126,7 +135,7 @@ git config --global user.email "your.email@example.com"
 
 ### 2.2 — Install GitHub CLI
 
-GitHub CLI is a tool that lets you log into GitHub from Terminal so you can send code to GitHub without dealing with passwords every time.
+<a id="ref-cli"></a>[CLI](#glossary-cli) stands for "command line interface" — it just means a tool you use by typing commands in Terminal instead of clicking buttons in a window. So "GitHub CLI" is GitHub's tool for doing GitHub things from Terminal. It lets you log into GitHub from Terminal so you can send code to GitHub without dealing with passwords every time.
 
 Type this command:
 
@@ -183,7 +192,7 @@ claude
 
 It will ask you to log in with your Anthropic account. Follow the prompts — it opens a browser window, you log in, and you're connected. After authenticating, you can type `/exit` to close Claude Code for now. We'll come back to it in the next section.
 
-> **Important: Use the Terminal version, not the Desktop app.** Claude Code also offers a Desktop app with a graphical interface — it might look more comfortable. However, the Figma MCP connection does not currently work reliably with the Desktop app. The Terminal version is what Figma officially supports, so stick with it for this workflow. It might feel unfamiliar at first, but you'll only ever type a few commands. You've got this.
+> **Important: Use the Terminal version, not the Desktop app.** Claude Code also offers a Desktop app with a graphical interface — it might look more comfortable. However, the Figma [MCP](#glossary-mcp) connection does not currently work reliably with the Desktop app. The Terminal version is what Figma officially supports, so stick with it for this workflow. It might feel unfamiliar at first, but you'll only ever type a few commands. You've got this.
 
 ---
 
@@ -203,6 +212,8 @@ cd ~/Projects
 The `~` is a shortcut that means "my home folder." So `~/Projects` is a folder called Projects in your home directory.
 
 ### 3.2 — Create a GitHub Repository
+
+A <a id="ref-repository"></a>[repository](#glossary-repository) (or "repo" for short) is a project folder that Git tracks. It contains your code and the full history of every change. Think of it like a Figma file that automatically saves every version.
 
 Open your browser and go to [github.com/new](https://github.com/new):
 
@@ -228,7 +239,7 @@ Then move into the project folder:
 cd my-portfolio
 ```
 
-**What just happened?** "Cloning" downloaded a copy of your GitHub repository to your computer. You now have a local folder that's connected to GitHub. Changes you make here can be "pushed" up to GitHub.
+**What just happened?** <a id="ref-clone"></a>[Cloning](#glossary-clone) downloaded a copy of your GitHub repository to your computer. You now have a local folder that's connected to GitHub. Changes you make here can be "pushed" up to GitHub.
 
 ### 3.4 — Start Claude Code and Connect Figma
 
@@ -248,14 +259,14 @@ Now, connect Figma. Inside Claude Code, type:
 
 This opens a browsable list of plugins. Find the **Figma** plugin and install it. When prompted, a browser window will open asking you to authorize the Figma connection — click Allow.
 
-To verify it worked, type `/mcp` inside Claude Code. You should see the Figma server listed as connected.
+To verify it worked, type <a id="ref-mcp"></a>[`/mcp`](#glossary-mcp) inside Claude Code. You should see the Figma server listed as connected.
 
 ### 3.5 — Connect Vercel to Your GitHub Repo
 
 1. Go to [vercel.com](https://vercel.com) and log in
 2. Click **Add New Project**
 3. You should see your GitHub repository listed — click **Import**
-4. Vercel will try to auto-detect settings. For now, just click **Deploy** — it's okay if the first deploy "fails" because there's no real code yet. Once Claude Code builds your site and you push the code, Vercel will deploy it properly.
+4. Vercel will try to auto-detect settings. For now, just click **Deploy** — it's okay if the first <a id="ref-deploy"></a>[deploy](#glossary-deploy) "fails" because there's no real code yet. Once Claude Code builds your site and you push the code, Vercel will deploy it properly.
 
 ### 3.6 — Custom Domain (Optional)
 
@@ -263,7 +274,7 @@ If you've purchased a domain name (like `yourname.com`):
 
 1. In Vercel, go to your project → **Settings** → **Domains**
 2. Add your domain
-3. Vercel will give you DNS records to add at your domain registrar (wherever you bought the domain)
+3. Vercel will give you <a id="ref-dns"></a>[DNS records](#glossary-dns) to add at your domain registrar (wherever you bought the domain)
 
 If you haven't bought a domain yet, don't worry — Vercel gives you a free URL like `my-portfolio.vercel.app` that works immediately.
 
@@ -276,14 +287,14 @@ Before you start working, there's something important to know. Claude Code will 
 It looks something like this:
 
 ```
-Claude wants to run: npm install next react react-dom
+Claude wants to run: npm install next react react-dom  ← don't worry about what this means!
 
   Allow?  [y] Yes  [n] No  [a] Always allow
 ```
 
 This can feel overwhelming at first because you won't recognize most of the commands. Here's a simple mental model:
 
-**When to say Yes (y):** Most of the time. Claude Code is working inside your project folder, and the things it asks to do — creating files, editing code, installing packages, running the dev server — are all normal parts of building a website. If you told Claude Code to do something and it's now asking permission to do it, that's expected.
+**When to say Yes (y):** Most of the time. Claude Code is working inside your project folder, and the things it asks to do — creating files, editing code, installing <a id="ref-package"></a>[packages](#glossary-package), running the dev server — are all normal parts of building a website. If you told Claude Code to do something and it's now asking permission to do it, that's expected.
 
 **When to say Always allow (a):** Once you've seen the same type of action a few times and you're comfortable with it. For example, after you've approved file edits three or four times, you might want to select "Always allow" for file editing so it stops asking. This applies to the current session only — next time you start Claude Code, it resets.
 
@@ -326,7 +337,7 @@ Tell Claude Code:
 
 > "Run the dev server so I can preview the site"
 
-It will start a local server and give you a URL (usually `http://localhost:3000`). Open that in your browser. As you make changes through Claude Code, the browser updates automatically.
+It will start a local <a id="ref-dev-server"></a>[dev server](#glossary-dev-server) and give you a URL (usually <a id="ref-localhost"></a>[`http://localhost:3000`](#glossary-localhost)). Open that in your browser. As you make changes through Claude Code, the browser updates automatically.
 
 ### Giving Feedback
 
@@ -346,7 +357,7 @@ When you're happy with a round of changes:
 
 > "Commit and push"
 
-Claude Code saves a snapshot of your changes and sends them to GitHub. Within a couple of minutes, Vercel picks them up and your live site updates.
+Claude Code <a id="ref-commit"></a>[commits](#glossary-commit) (saves a snapshot of your changes) and <a id="ref-push"></a>[pushes](#glossary-push) (sends them to GitHub). Within a couple of minutes, Vercel picks them up and your live site updates.
 
 ### Useful Phrases
 
@@ -412,3 +423,39 @@ Some things to try:
 - "Add animations when elements scroll into view"
 
 You designed it. You directed it. You shipped it. No site builder compromises. No waiting on a developer. Just your vision, built exactly the way you imagined it.
+
+---
+
+## Glossary
+
+Technical terms used in this guide, explained in plain language. Click the ↩ arrow to jump back to where the term was used.
+
+---
+
+<a id="glossary-2fa"></a>**Two-factor authentication (2FA)** — A security step where you prove your identity with two things: your password (something you know) and a temporary code from your phone (something you have). It's like needing both a key and a PIN to open a door. Most developer tools require it because code access is sensitive. [↩](#ref-2fa) · [Learn more](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
+
+<a id="glossary-cli"></a>**CLI (Command Line Interface)** — A way of using a program by typing text commands instead of clicking buttons in a graphical window. When someone says "the GitHub CLI," they mean a program that lets you do GitHub tasks by typing commands in Terminal. The opposite of a CLI is a GUI (graphical user interface) — the kind of apps you're used to, with windows and buttons. [↩](#ref-cli) · [Learn more](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line)
+
+<a id="glossary-clone"></a>**Clone** — To download a copy of a repository from GitHub to your computer. The copy stays connected to GitHub, so you can send changes back and forth. It's similar to downloading a Figma file for offline use — except the connection to the original is maintained automatically. [↩](#ref-clone) · [Learn more](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+<a id="glossary-commit"></a>**Commit** — A saved snapshot of your project at a specific point in time. When you commit, you're telling Git: "Remember what everything looks like right now." You can think of it like pressing "Save" in Figma — except Git keeps every version you've ever saved, and you can go back to any of them. Each commit includes a short description of what changed. [↩](#ref-commit) · [Learn more](https://github.com/git-guides/git-commit)
+
+<a id="glossary-deploy"></a>**Deploy** — To take code and make it available as a live website that anyone can visit. When Vercel "deploys" your project, it takes your code from GitHub, builds it into a website, and puts it on the internet. Think of it like exporting a finished design and uploading it somewhere public. [↩](#ref-deploy) · [Learn more](https://vercel.com/docs/deployments/overview)
+
+<a id="glossary-dev-server"></a>**Dev server (development server)** — A temporary, private version of your website that runs on your own computer so you can preview your work before publishing it. Only you can see it (it's not on the internet). When you stop the dev server, the preview goes away — your real site is unaffected. [↩](#ref-dev-server) · [Learn more](https://nextjs.org/docs/getting-started/installation#run-the-development-server)
+
+<a id="glossary-dns"></a>**DNS (Domain Name System)** — The internet's address book. When someone types `yourname.com` into a browser, DNS is what translates that human-readable name into the actual server address where your website lives. When Vercel asks you to "add DNS records," it's asking you to update this address book so your domain name points to Vercel's servers. [↩](#ref-dns) · [Learn more](https://vercel.com/docs/projects/domains)
+
+<a id="glossary-git"></a>**Git** — A tool that tracks every change to every file in your project over time. It's like version history in Figma, but for code. Git runs on your computer and keeps a detailed log of what changed, when, and why. It's the most widely used tool of its kind — nearly every developer in the world uses it. [↩](#ref-git) · [Learn more](https://docs.github.com/en/get-started/using-git/about-git)
+
+<a id="glossary-localhost"></a>**localhost** — A special web address that means "this computer." When you see `http://localhost:3000`, it means "the website being served by my own computer on port 3000." It's not a real internet address — only you can see it. Developers use it to preview their work before publishing. [↩](#ref-localhost) · [Learn more](https://developer.mozilla.org/en-US/docs/Glossary/Localhost)
+
+<a id="glossary-mcp"></a>**MCP (Model Context Protocol)** — A standard that lets AI tools like Claude Code connect to other services. The Figma MCP connection is what allows Claude Code to read your Figma designs directly. Think of it like a plugin system — MCP is how Claude Code "plugs in" to Figma, and potentially other tools in the future. [↩](#ref-mcp) · [Learn more](https://modelcontextprotocol.io/)
+
+<a id="glossary-package"></a>**Package** — A bundle of pre-written code that someone else built and shared, so you don't have to write everything from scratch. When Claude Code runs something like `npm install next react`, it's downloading packages — in this case, the tools needed to build a modern website. Think of packages like Figma plugins: they extend what the tool can do. [↩](#ref-package) · [Learn more](https://docs.npmjs.com/about-packages-and-modules)
+
+<a id="glossary-push"></a>**Push** — To send your committed changes from your computer up to GitHub. Committing saves changes locally (on your Mac); pushing uploads them to the cloud. Once changes are pushed to GitHub, Vercel can see them and automatically update your live website. [↩](#ref-push) · [Learn more](https://github.com/git-guides/git-push)
+
+<a id="glossary-repository"></a>**Repository (repo)** — A project folder that's tracked by Git. It contains all your project's files plus the complete history of every change ever made. On GitHub, a repository is where your project lives in the cloud. On your computer, it's the local folder you work in. Think of it like a Figma project — it holds all the files, and you can see the full history of every edit. [↩](#ref-repository) · [Learn more](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
+
+<a id="glossary-terminal"></a>**Terminal** — An app on your Mac where you type text commands to control your computer. It's been around since before graphical interfaces existed. Developers use it constantly because typing commands can be faster than clicking through menus. It might look unfamiliar, but for this workflow you'll only ever type a few short commands. [↩](#ref-terminal) · [Learn more](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac)
